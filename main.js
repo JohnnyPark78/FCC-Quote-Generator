@@ -1,7 +1,7 @@
 $(document).ready(function(){
     function req(){
         $.ajax({
-            url: "https://crossorigin.me/http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?",
+            url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?",
             type: "GET",
             dataType: "jsonp",
             crossDomain: true,
