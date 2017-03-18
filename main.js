@@ -1,14 +1,14 @@
 $(document).ready(function(){
     function req(){
         $.ajax({
-            url: "https://crossorigin.me/http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?",
+            url: "https://random-quote-generator.herokuapp.com/api/quotes/random",
             type: "GET",
             dataType: "jsonp",
             crossDomain: true,
         })
         .done(function(json){
-            var quote = JSON.stringify(json.quoteText).replace(/[""]+/g,'');
-            var auth = JSON.stringify(json.quoteAuthor).replace(/[""]+/g,'');
+            var quote = JSON.stringify(json.quote).replace(/[""]+/g,'');
+            var auth = JSON.stringify(json.author).replace(/[""]+/g,'');
             $(".quote-main").html(quote);
             $(".quote-auth").html('- ' + auth);
             $(".tweet").html('<a href="https://twitter.com/intent/tweet?text=' + quote + ' - ' + auth + '" class="btn btn-info" role="button" target="_blank">Tweet This</a>');
